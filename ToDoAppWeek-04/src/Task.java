@@ -3,21 +3,23 @@
  */
 public class Task  {
   private String name;
-  private boolean taskDone;
+  private String status;
 
-//  private static String TASK_DONE = "done";
-//  private static String TASK_UNDONE = "undone";
-
-  public Task(String name) {
-    this.name = name;
+  public Task(String aName) {
+    name = aName;
+    status = "incomplete";
   }
   public void setTaskDone() {
-    this.taskDone = true;
+    status = "done";
   }
 
-  @Override
-  public String toString() {
-    return (taskDone ? "[x] " : "[ ] ") + name;
+  public Boolean isDone() {
+    return status.equals("done");
+  }
+  
+  public String getStatus() {
+    String statusMark = status.equals("done") ? "[x]" : "[ ]";
+    return statusMark + " " + name;
   }
 
 }
