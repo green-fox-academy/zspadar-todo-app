@@ -16,7 +16,7 @@ public class TaskManager {
      myToDoList = new List<String>();
   }
 
-  private static void printUsage() {
+  static void printUsage() {
     String help = "\n" + "Java ToDo Application" + "\n" + "=====================" + "\n"  + "\n" +
             "Command line arguments: " + "\n" + "list List all the tasks" + "\n" +
             "add Adds a new task" + "\n"  +
@@ -24,7 +24,7 @@ public class TaskManager {
     System.out.println(help);
   }
 
-  private static void printList() {
+  static void printList() {
     Path path = Paths.get(FILE_NAME);
     try {
       List<String> myToDoList = Files.readAllLines(path);
@@ -40,7 +40,7 @@ public class TaskManager {
     }
   }
 
-  private static void addNewTask(String name) {
+  static void addNewTask(String name) {
     Path path = Paths.get(FILE_NAME);
     try {
       List<String> myToDoList = Files.readAllLines(path);
@@ -51,7 +51,7 @@ public class TaskManager {
     }
   }
 
-  private static void removeTask(int index) {
+  static void removeTask(int index) {
     Path path = Paths.get(FILE_NAME);
     try {
       List<String> myToDoList = Files.readAllLines(path);
@@ -66,7 +66,12 @@ public class TaskManager {
     }
   }
 
-  
+  static void handleArgument(){
+    String argumentHandler = "This is not a valid argument, please consider using one of the following: " + "\n";
+    System.out.println(new StringBuilder().append(argumentHandler).append(printUsage()).toString());
+  }
+
+
 
 
 
