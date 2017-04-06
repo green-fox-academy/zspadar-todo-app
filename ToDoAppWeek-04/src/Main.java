@@ -11,12 +11,24 @@ import java.util.List;
 public class Main {
   public static void main(String[] args) {
     List<String> rawLines = readLinesFromFile();
+    String help = "\n" + "Java ToDo Application" + "\n" + "=====================" + "\n"  + "\n" +
+                       "Command line arguments: " + "\n" + "list List all the tasks" + "\n" +
+            "add Adds a new task" + "\n"  +
+            "remove Removes a task" + "\n" + "complete Completes a task";
 
     if (args.length == 0) {
-      System.out.println("Java ToDo Application" + "\n" + "=====================" + "\n" + "\n" +
-              "Command line arguments: " + "\n" + "list List all the tasks" + "\n" + "add Adds a new task" + "\n" +
-              "remove Removes a task" + "\n" + "complete Completes a task");
-    } else if (args[0].equals("list"))
+      System.out.println(help);
+//    } else if (args[0].equals("list")) {
+//      System.out.println(listAllTask);
+//    } else if (args[0].equals("add")) {
+//      System.out.println(addNewTask);
+//    } else if (args[0].equals("remove")){
+//      System.out.println(removeTask);
+//    } else if (args[0].equals("complete")) {
+//      System.out.println(completeTask);
+    } else {
+      System.out.println("This is not a valid argument, please consider using one of the following: " + "\n" + help);
+    }
 
   }
 
