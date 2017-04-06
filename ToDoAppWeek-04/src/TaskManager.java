@@ -14,21 +14,40 @@ public class TaskManager {
 
   public TaskManager() {
      myToDoList = new List<String>();
-
   }
+
+  private static void printUsage() {
+    String help = "\n" + "Java ToDo Application" + "\n" + "=====================" + "\n"  + "\n" +
+            "Command line arguments: " + "\n" + "list List all the tasks" + "\n" +
+            "add Adds a new task" + "\n"  +
+            "remove Removes a task" + "\n" + "complete Completes a task";
+    System.out.println(help);
+  }
+
   private static void printList() {
     Path path = Paths.get(FILE_NAME);
     try {
       List<String> myToDoList = Files.readAllLines(path);
       if(myToDoList.size() == 0) {
-        System.out.println("No todos for today! :) ");
+        System.out.println("No to dos for today! :) ");
       } else {
         for (int i = 0; i < myToDoList.size(); i++) {
           System.out.println(i + 1 + "." + myToDoList.get(i) + "\n");
         }
       }
     } catch (IOException e) {
-      e.getStackTrace();
+      System.out.println("Something is wrong...oh-ooh! :(");
+    }
+  }
+
+  private static void addNewTask(String name) {
+    Path path = Paths.get(FILE_NAME);
+    try {
+      List<String> myToDoList = Files.readAllLines(path);
+      myToDoList.add(name);
+      Files.write(path, myToDoList);
+    } catch (IOException e) {
+      System.out.println("Something is wrong...oh-ooh! :(");
     }
   }
 
@@ -37,28 +56,10 @@ public class TaskManager {
     try {
       Files.write(path, data);
     } catch (IOException e) {
-      e.printStackTrace();
+      System.out.println("Something is wrong...oh-ooh! :(");
     }
   }
-  private static List<String> readLinesFromFile() {
-    Path path = Paths.get(FILE_NAME);
-    List<String> rawLines;
 
-    try {
-      rawLines = Files.readAllLines(path);
-    } catch (IOException e) {
-      e.printStackTrace();
-      rawLines = new ArrayList<>();
-    }
-
-    return rawLines;
-  }
-
-  private static void processData(List<String> rawLines) {
-    for (String line : rawLines) {
-      String[] splittedLine = line.split(";");
-    }
-  }
 
 
 }

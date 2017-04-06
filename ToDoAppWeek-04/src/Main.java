@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Main {
   public static void main(String[] args) {
-    List<String> rawLines = readLinesFromFile();
+
     String help = "\n" + "Java ToDo Application" + "\n" + "=====================" + "\n"  + "\n" +
                        "Command line arguments: " + "\n" + "list List all the tasks" + "\n" +
             "add Adds a new task" + "\n"  +
@@ -20,8 +20,8 @@ public class Main {
       System.out.println(help);
     } else if (args[0].equals("list") && args.length == 4) {
       printList();
-//    } else if (args[0].equals("add")) {
-//      System.out.println(addNewTask);
+    } else if (args[0].equals("add")) {
+      addNewTask();
 //    } else if (args[0].equals("remove")){
 //      System.out.println(removeTask);
 //    } else if (args[0].equals("complete")) {
@@ -32,8 +32,7 @@ public class Main {
 
   }
 
-  private static void printList() {
-  }
+
 
 
 }
