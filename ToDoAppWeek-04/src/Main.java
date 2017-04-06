@@ -20,7 +20,7 @@ public class Main {
       System.out.println(help);
     } else if (args[0].equals("list") && args.length == 4) {
       printList();
-    } else if (args[0].equals("add")) {
+    } else if (args[0].equals("add" + )) {
       addNewTask();
 //    } else if (args[0].equals("remove")){
 //      System.out.println(removeTask);

@@ -47,18 +47,26 @@ public class TaskManager {
       myToDoList.add(name);
       Files.write(path, myToDoList);
     } catch (IOException e) {
-      System.out.println("Something is wrong...oh-ooh! :(");
+      System.out.println();
     }
   }
 
-  private static void writeToFile(List<String> data) {
+  private static void removeTask(int index) {
     Path path = Paths.get(FILE_NAME);
     try {
-      Files.write(path, data);
+      List<String> myToDoList = Files.readAllLines(path);
+      if (myToDoList.size() >= 2) {
+        myToDoList.remove(index);
+        Files.write(path, myToDoList);
+      } else {
+        return;
+      }
     } catch (IOException e) {
       System.out.println("Something is wrong...oh-ooh! :(");
     }
   }
+
+  
 
 
 
