@@ -13,7 +13,7 @@ public class TaskManager {
   private final static String FILE_NAME = "data.csv";
 
   public TaskManager() {
-     myToDoList = new List<String>();
+     myToDoList = new ArrayList<>();
   }
 
   static void printUsage() {
@@ -47,7 +47,7 @@ public class TaskManager {
       myToDoList.add(name);
       Files.write(path, myToDoList);
     } catch (IOException e) {
-      System.out.println();
+      System.out.println("Something is wrong...yikes!");
     }
   }
 
@@ -65,10 +65,32 @@ public class TaskManager {
       System.out.println("Something is wrong...oh-ooh! :(");
     }
   }
+  static void completeTask(int index) {
+    Path path = Paths.get(FILE_NAME);
+    try {
+      List<String> myToDoList = Files.readAllLines(path);
+      if (myToDoList.size() >= 2) {
+          System.out.println(myToDoList.get(index - 1));
+      } else {
+        return;
+      }
+    } catch (IOException e) {
+      System.out.println("Something is wrong...yikes!");
+    }
+  }
 
-  static void handleArgument(){
+  static void handleArgument() {
     String argumentHandler = "This is not a valid argument, please consider using one of the following: " + "\n";
-    System.out.println(new StringBuilder().append(argumentHandler).append(printUsage()).toString());
+    System.out.println(new StringBuilder().append(argumentHandler).append(toString(printUsage());
+  }
+
+  static void writeToFile(List<String> data) {
+    Path path = Paths.get(FILE_NAME);
+    try {
+      Files.write(path, data);
+    } catch (IOException e) {
+      System.out.println("Something is wrong...yikes!");
+    }
   }
 
 

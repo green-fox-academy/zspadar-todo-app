@@ -1,7 +1,7 @@
 /**
  * Created by zsuzsanna.padar on 2017. 04. 06..
  */
-public class Task {
+public class Task  {
   private String name;
   private boolean taskDone;
 
@@ -19,9 +19,5 @@ public class Task {
   public String toString() {
     return (taskDone ? "[x] " : "[ ] ") + name;
   }
-
-
-
-
 
 }
